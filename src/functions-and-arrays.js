@@ -123,23 +123,19 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  if(wordsUnique.length === 0){
+  if (wordsUnique.length === 0) {
     return null;
   }
-  
+
   newCleanArr = [];
 
-  for(let i = 0; i < wordsUnique.length; i++){
-
-    if( !newCleanArr.includes(wordsUnique[i])){
-       newCleanArr.push(wordsUnique[i])
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (!newCleanArr.includes(wordsUnique[i])) {
+      newCleanArr.push(wordsUnique[i]);
     }
   }
-
-  return newCleanArr
-
+  return newCleanArr;
 }
-
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -152,8 +148,25 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
+const testWord = "matter"
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, testWord) {
+
+  if(wordsFind.length === 0){
+    return null;
+  }
+
+  for(let i =0; i < wordsFind.length; i++ ){
+
+    if(wordsFind.includes(testWord)){
+      return true
+    }else {
+      return false
+    }  
+
+}
+
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
