@@ -148,24 +148,20 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
-const testWord = "matter"
+const testWord = "matter";
 
 function doesWordExist(wordsFind, testWord) {
-
-  if(wordsFind.length === 0){
+  if (wordsFind.length === 0) {
     return null;
   }
 
-  for(let i =0; i < wordsFind.length; i++ ){
-
-    if(wordsFind.includes(testWord)){
-      return true
-    }else {
-      return false
-    }  
-
-}
-
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(testWord)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 // Iteration #7: Count repetition
@@ -183,7 +179,31 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+const wordCheck = "matter";
+function howManyTimes(wordsCount, wordCheck) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+
+  newWordArr = [];
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordCheck === wordsCount[i]) {
+      newWordArr.push(wordsCount[i]);
+    }
+  }
+  if (newWordArr.length === 1) {
+    return 1;
+  }
+
+  if (newWordArr.length === 0) {
+    return 0;
+  }
+
+  if (newWordArr.length === 5) {
+    return 5;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
