@@ -74,10 +74,7 @@ function averageNumbers(numbersAvg) {
   resultAvg = sumOfNumb / arrayNumb;
 
   return resultAvg;
-
-
-  }
-
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -94,21 +91,17 @@ const wordsArr = [
 ];
 
 function averageWordLength(wordsArr) {
-
-  if(wordsArr.length === 0){
+  if (wordsArr.length === 0) {
     return null;
   }
 
   let totalLength = 0;
 
-  for(let i = 0; i < wordsArr.length; i++){
-
+  for (let i = 0; i < wordsArr.length; i++) {
     totalLength += wordsArr[i].length;
-
   }
-  
-   return totalLength / wordsArr.length;
 
+  return totalLength / wordsArr.length;
 }
 
 // Bonus - Iteration #4.1
@@ -129,7 +122,24 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0){
+    return null;
+  }
+  
+  newCleanArr = [];
+
+  for(let i = 0; i < wordsUnique.length; i++){
+
+    if( !newCleanArr.includes(wordsUnique[i])){
+       newCleanArr.push(wordsUnique[i])
+    }
+  }
+
+  return newCleanArr
+
+}
+
 
 // Iteration #6: Find elements
 const wordsFind = [
