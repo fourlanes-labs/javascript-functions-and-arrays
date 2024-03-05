@@ -7,8 +7,6 @@ function maxOfTwoNumbers(x, y) {
   }
 }
 
-maxOfTwoNumbers(4, 7);
-
 // Iteration #2: Find longest word
 const words = [
   "mystery",
@@ -27,12 +25,11 @@ function findLongestWord(words) {
   let wordLength = 0;
   let longestWord = "";
 
-  for (let i = 0; i < words.length; i++) {
-    const wordToCheckLength = words[i].length;
-
+  for (const word of words) {
+    const wordToCheckLength = word.length;
     if (wordToCheckLength > wordLength) {
       wordLength = wordToCheckLength;
-      return (longestWord = words[i]);
+      return (longestWord = word);
     }
   }
   return longestWord;
