@@ -29,7 +29,7 @@ function findLongestWord(words) {
     const wordToCheckLength = word.length;
     if (wordToCheckLength > wordLength) {
       wordLength = wordToCheckLength;
-      return (longestWord = word);
+      longestWord = word;
     }
   }
   return longestWord;
@@ -46,14 +46,44 @@ function sumNumbers(numbers) {
   }
 
   for (let i = 0; i < numbers.length; i++) {
-    result = sumFigure + numbers[i];
+    sumFigure += numbers[i];
   }
 
-  return (sumFigure = result);
+  return sumFigure;
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(arr) {
+  if (mixedArr.length === 0) {
+    return null;
+  }
+
+  let totalSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+
+    if (typeof value === "number") {
+      // Add numeric values directly
+      totalSum += value;
+    } else if (typeof value === "string") {
+      // Add string lengths
+      totalSum += value.length;
+    } else if (typeof value === "boolean") {
+      // Add numeric values of booleans (true = 1, false = 0)
+      totalSum += value ? 1 : 0;
+    } else {
+      throw new Error(`Unsupported data type at index ${i}: ${typeof value}`);
+    }
+  }
+
+  return totalSum;
+}
+
+// Test the function with the provided array
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -102,7 +132,31 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let totalSum = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+
+    if (typeof value === "number") {
+      totalSum += value;
+      count++;
+    } else if (typeof value === "string") {
+      totalSum += value.length;
+      count++;
+    } else if (typeof value === "boolean") {
+      totalSum += value ? 1 : 0;
+      count++;
+    }
+  }
+
+  if (count === 0) {
+    return 0;
+  }
+
+  return totalSum / count;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -124,15 +178,19 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
 
-  newCleanArr = [];
+  const newCleanArr = [];
 
-  for (let i = 0; i < wordsUnique.length; i++) {
-    if (!newCleanArr.includes(wordsUnique[i])) {
-      newCleanArr.push(wordsUnique[i]);
+  for (const item of wordsUnique) {
+    if (!newCleanArr.includes(item)) {
+      newCleanArr.push(item);
     }
   }
   return newCleanArr;
 }
+
+// Example usage
+const uniqueWords = uniquifyArray(wordsUnique);
+console.log(uniqueWords);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -268,7 +326,74 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let maxProduct = 0;
+
+  // Helper function to calculate product of four numbers
+  function calculateProduct(a, b, c, d) {
+    return a * b * c * d;
+  }
+
+  // Check horizontal products
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j <= cols - 4; j++) {
+      const product = calculateProduct(
+        matrix[i][j],
+        matrix[i][j + 1],
+        matrix[i][j + 2],
+        matrix[i][j + 3]
+      );
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check vertical products
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j < cols; j++) {
+      const product = calculateProduct(
+        matrix[i][j],
+        matrix[i + 1][j],
+        matrix[i + 2][j],
+        matrix[i + 3][j]
+      );
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check diagonal products (top-left to bottom-right)
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j <= cols - 4; j++) {
+      const product = calculateProduct(
+        matrix[i][j],
+        matrix[i + 1][j + 1],
+        matrix[i + 2][j + 2],
+        matrix[i + 3][j + 3]
+      );
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Check diagonal products (top-right to bottom-left)
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = cols - 1; j >= 3; j--) {
+      const product = calculateProduct(
+        matrix[i][j],
+        matrix[i + 1][j - 1],
+        matrix[i + 2][j - 2],
+        matrix[i + 3][j - 3]
+      );
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  return maxProduct;
+}
+
+// Call the function with the provided matrix
+const result = greatestProduct(matrix);
+console.log(result);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
