@@ -133,6 +133,10 @@ function averageWordLength(wordsArr) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
+
+  if (arr.length === 0){
+    return null;
+  }
   let totalSum = 0;
   let count = 0;
 
