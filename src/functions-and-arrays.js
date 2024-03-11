@@ -39,7 +39,7 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  sumFigure = 0;
+  let sumFigure = 0;
 
   if (numbers.length === 0) {
     return 0;
@@ -94,11 +94,11 @@ function averageNumbers(numbersAvg) {
     return null;
   }
 
-  sumOfNumb = sumNumbers(numbersAvg);
+  const sumOfNumb = sumNumbers(numbersAvg);
 
-  arrayNumb = numbersAvg.length;
+  const arrayNumb = numbersAvg.length;
 
-  resultAvg = sumOfNumb / arrayNumb;
+  const resultAvg = sumOfNumb / arrayNumb;
 
   return resultAvg;
 }
@@ -133,8 +133,7 @@ function averageWordLength(wordsArr) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-
-  if (arr.length === 0){
+  if (arr.length === 0) {
     return null;
   }
   let totalSum = 0;
@@ -215,13 +214,13 @@ function doesWordExist(wordsFind, testWord) {
   }
 
   for (let i = 0; i < wordsFind.length; i++) {
-    if (wordsFind.includes(testWord)) {
+    if (wordsFind[i] === testWord) {
       return true;
-    } else {
-      return false;
-    }
+    } 
   }
+  return false
 }
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -244,7 +243,7 @@ function howManyTimes(wordsCount, wordCheck) {
     return 0;
   }
 
-  newWordArr = [];
+  let newWordArr = [];
 
   for (let i = 0; i < wordsCount.length; i++) {
     if (wordCheck === wordsCount[i]) {
