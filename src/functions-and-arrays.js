@@ -1,10 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(x, y) {
-  if (x > y) {
-    return x;
-  } else {
-    return y;
-  }
+  return x > y ? x : y;
 }
 
 // Iteration #2: Find longest word
